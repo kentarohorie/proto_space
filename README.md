@@ -11,19 +11,15 @@
    * works
 
 ## proto
-has_many: comments
+has_many: comments <br />
 has_many: tags, through: protos_tag
   blongs_to: user
   * title
   * main_thumbnail
-  * sub_thumbnails1
-  * sub_thumbnails2
-  * sub_thumbnails3
+  * sub_thumbnailses
   * catchcopy
   * concept
-  * tag1
-  * tag2
-  * tag3
+  * tags
   * date
   * user_id
 
