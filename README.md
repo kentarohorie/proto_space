@@ -1,25 +1,11 @@
-##
-model
-1 user => nickname, email, password, avatar, memner of, profile ,works
-2 proto => title, main_thumbnail, sub_thumbnails * 3, catchcopy, concept, t ag * 3, like, date, user_id
-3 comment =>  comment, proto_id
-4 tag
-5 protostag => tags_id, protos_id
-
-##
-relation
-one(proto) : many(comments) {
-  proto => comments
-}  mooovi
-
-one(user) : many(proto) {
-  user => protos
-  proto => user
-}
-
-@@user has many protos & proto has many comments == user > protos > comments
-
-many : many {
-  proto => tags
-  tag => protos
-}
+#database design
+##user
+ has_many: prots  *nickname  *email  *password  *avatar_iamge    *member  *profile  *works
+##proto
+has_many: comments  has_many: tags  *title  *main_thumbnail  *sub_thumbnailsx3  *catchcopy  *concept  *tagx3  *like  *date  *user_id
+##comment
+*comment  *proto_id
+##tag
+has_many: protos  *tag_name
+##protostag
+*tags_id  *protos_id
