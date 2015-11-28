@@ -1,4 +1,5 @@
 #database design
+
 ##user
  has_many: prots
    +nickname
@@ -8,6 +9,7 @@
    +member
    +profile
    +works
+
 ##proto
 has_many: comments  has_many: tags
   +title
@@ -19,12 +21,15 @@ has_many: comments  has_many: tags
   +like
   +date
   +user_id
+
 ##comment
   +comment
   +proto_id
+
 ##tag
 has_many: protos
   +tag_name
+
 ##protostag
   +tags_id
   +protos_id
