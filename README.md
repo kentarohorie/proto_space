@@ -12,8 +12,8 @@
 
 ## proto
 has_many: comments <br />
-has_many: tags, through: protos_tag
-  blongs_to: user
+###has_many: tags, through: protos_tag <br />
+blongs_to: user
   * title
   * main_thumbnail
   * sub_thumbnailses
