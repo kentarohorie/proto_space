@@ -1,6 +1,6 @@
-#database design
+# database design
 
-##user
+## user
  has_many: prots
    * nickname
    * email
@@ -10,26 +10,37 @@
    * profile
    * works
 
-##proto
-has_many: comments  has_many: tags
+## proto
+has_many: comments
+has_many: tags, through: protos_tag
+  blongs_to: user
   * title
   * main_thumbnail
-  * sub_thumbnailsx3
+  * sub_thumbnails1
+  * sub_thumbnails2
+  * sub_thumbnails3
   * catchcopy
   * concept
-  * agx3
-  * like
+  * tag1
+  * tag2
+  * tag3
   * date
   * user_id
 
-##comment
+## comment
+belongs_to: proto
   * comment
   * proto_id
 
-##tag
-has_many: protos
+## tag
+has_many: protos, through: protos_tag
   * tag_name
 
-##protostag
+## protos_tag
+belongs_to: tag, proto
   * tags_id
   * protos_id
+
+## like
+  * proto_id
+  * user_id
