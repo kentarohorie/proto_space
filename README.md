@@ -42,3 +42,4 @@ belongs_to: proto <br />
 belongs_to: user
   * proto_id
   * user_id
+
