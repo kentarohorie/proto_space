@@ -47,3 +47,5 @@ end
 
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'sprockets', '2.11.0'
+gem 'bootstrap-sass', '~> 2.3.1.0'
