@@ -30,6 +30,5 @@
               = f.text_area :works, :placeholder => 'Works'
               / %textarea{:name => "textarea", :cols => "30", :rows => "4", :placeholder => "Works"}
       .row.text-center.user-btn
-        .btn.btn-lg.btn-primary.btn-block
-          = f.submit ['Save']
+        = f.submit ['Save'] ,class: 'btn btn-lg btn-primary btn-block'
         / %button.btn.btn-lg.btn-primary.btn-block{:type => "submit"} Save
