@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def update
     current_user.update(update_params)
     # binding.pry
-    redirect_to '/' #controller: 'top_controller' action: 'index' and return
+    redirect_to root_path and return
   end
 
   private
