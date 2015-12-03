@@ -1,24 +1,24 @@
 .container.user-page
   %header.user-nav
     .media
-      .media-left{style: 'width: 74px; height: 82px; float: left; padding-right: 10px;'}
+      .media-left{ style: 'width: 74px; height: 82px; float: left; padding-right: 10px;' }
         = link_to '#' do
-          %img.media-object{alt: "64x64", "data-holder-rendered" => "true", "data-src" => "holder.js/64x64", src: current_user.avatar, style: "width: 64px; height: 64px;"}/
-      .media-body{style: 'float:left;'}
+          %img.media-object{ alt: "64x64", "data-holder-rendered" => "true", "data-src" => "holder.js/64x64", src: current_user.avatar, style: "width: 64px; height: 64px;" }/
+      .media-body{ style: 'float:left;' }
         %h4#top-aligned-media.media-heading
           Top aligned media
-          %span.label.label-default.project-number{style: ' height: 23px;'}
+          %span.label.label-default.project-number{ style: ' height: 23px;' }
             0
             %i Projects
         .proto-user
           %span.degree
             = current_user.username
-        .row{style: 'width: 1066px; height: 19px;'}
-          .col-md-6{style: 'width: 548px; height: 39px; '}
+        .row{ style: 'width: 1066px; height: 19px;' }
+          .col-md-6{ style: 'width: 548px; height: 39px; ' }
             %h4 Profile
             %p
               = current_user.profile
-          .col-md-6{style: 'width: 510px;'}
+          .col-md-6{ style: 'width: 510px;' }
             %h4 Works
             %p
               = current_user.works
@@ -26,7 +26,7 @@
   .row
     .col-sm-4.col-md-3.proto-content
       .thumbnail
-        %a{:href => ""}
+        = link_to '#' do
           = image_tag("sample.png")
           .caption
             %h3 Salvation Army on iPad App Wireframe
@@ -35,26 +35,22 @@
                 Apr 26
             %ul.proto-tag-list.list-inline
               %li
-                %a{:href => "#", :class => "btn btn-default"} iPad
+                = link_to 'iPad', '#', class: 'btn btn-default'
               %li
-                %a{:href => "#", :class => "btn btn-default"} wireframe
+                = link_to 'wireframe', '#', class: 'btn btn-default'
 .text-center
   %ul.pagination
     %li.disabled
-      %a{"aria-label" => "Previous", href: "#"}
+      = link_to '#', 'aria-label' => 'Previous' do
         %span{"aria-hidden" => "true"} «
     %li.active
-      %a{:href => "#"}
+      = link_to '#' do
         1
         %span.sr-only (current)
     %li
-      %a{:href => "#"} 2
+      = link_to '2', '#'
     %li
-      %a{:href => "#"} 3
+      = link_to '3', '#'
     %li
-      %a{:href => "#"} 4
-    %li
-      %a{:href => "#"} 5
-    %li
-      %a{"aria-label" => "Next", :href => "#"}
+      = link_to '#', 'aria-label' => 'Next' do
         %span{"aria-hidden" => "true"} »
