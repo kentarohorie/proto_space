@@ -3,7 +3,7 @@
     .media
       .media-left{ style: 'width: 74px; height: 82px; float: left; padding-right: 10px;' }
         = link_to '#' do
-          %img.media-object{ alt: "64x64", date: { holder: { rendered: 'true' } }, data: { src: "holder.js/64x64" }, src: current_user.avatar, style: "width: 64px; height: 64px;" }/
+          %img.media-object{ alt: "64x64", "data-holder-rendered" => "true", "data-src" => "holder.js/64x64", src: current_user.avatar, style: "width: 64px; height: 64px;" }/
       .media-body{ style: 'float:left;' }
         %h4#top-aligned-media.media-heading
           Top aligned media
@@ -41,8 +41,8 @@
 .text-center
   %ul.pagination
     %li.disabled
-      = link_to '#', aria: { label: 'Previous' } do
-        %span{ aria: { hidden: 'true' } } «
+      = link_to '#', 'aria-label' => 'Previous' do
+        %span{"aria-hidden" => "true"} «
     %li.active
       = link_to '#' do
         1
@@ -52,5 +52,5 @@
     %li
       = link_to '3', '#'
     %li
-      = link_to '#', aria: { label: 'Next' } do
-        %span{ aria: { hidden: 'true' } } »
+      = link_to '#', 'aria-label' => 'Next' do
+        %span{"aria-hidden" => "true"} »
