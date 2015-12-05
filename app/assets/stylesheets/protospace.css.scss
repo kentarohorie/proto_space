@@ -29,7 +29,7 @@ body {
   color: rgba(255, 255, 255, 0.87);
 }
 
-.default, .btn-link {
+.btn-default, .btn-link {
   color: rgba(0, 0, 0, 0.87);
 }
 
@@ -278,10 +278,6 @@ body {
   background-size:  100% auto;
   padding: 80px 0;
   margin-bottom: 0;
-}
-
-.text-center img {
-  height: 73px;
 }
 
 .filter-nav {
@@ -597,8 +593,4 @@ body {
       box-shadow: 0 1px 1px #eee;
     }
   }
-}
-
-.container footer p {
-  text-align: center;
 }
