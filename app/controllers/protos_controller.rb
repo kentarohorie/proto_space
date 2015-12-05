@@ -1,8 +1,8 @@
 class ProtosController < ApplicationController
   def new
     @proto = Proto.new
-    3.times {
-      @proto.thumnails.build
+    4.times {
+      @proto.thumbnails.build
     }
   end
 
