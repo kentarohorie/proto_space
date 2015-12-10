@@ -1,9 +1,11 @@
 class ProtosController < ApplicationController
+  def show
+    @proto = Proto.find_by_id(params[:id])
+  end
+
   def new
     @proto = Proto.new
-    4.times {
-      @proto.thumbnails.build
-    }
+    @proto.thumbnails.new
   end
 
   def create
@@ -13,6 +15,6 @@ class ProtosController < ApplicationController
 
   private
   def create_params
-    params.require(:proto).permit(:title, :catchcopy, :concept, thumbnails_attributes: [:image]).merge(user_id: params[:user_id])
+    params.require(:proto).permit(:title, :catchcopy, :concept, thumbnails_attributes: [:image, :status]).merge(user_id: params[:user_id])
   end
 end
