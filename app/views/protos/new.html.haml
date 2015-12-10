@@ -10,16 +10,15 @@
           .cover-image-upload
             = f.fields_for :thumbnails do |thumbnail|
               = thumbnail.file_field :image
+              = thumbnail.hidden_field :status, value: :main_thumbnail
         .col-md-12
           %ul.proto-sub-list.list-group
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.fields_for :thumbnails do |thumbnail|
-                  = thumbnail.file_field :image
-            %li.list-group-item.col-md-4
-              .image-upload
-                = f.fields_for :thumbnails do |thumbnail|
-                  = thumbnail.file_field :image
+            - for i in 1..2
+              %li.list-group-item.col-md-4
+                .image-upload
+                  = f.fields_for :thumbnails do |thumbnail|
+                    = thumbnail.file_field :image
+                    = thumbnail.hidden_field :status, value: :sub_thumbnail
             %li.list-group-item.col-md-4
               .image-upload-plus
                 %span +

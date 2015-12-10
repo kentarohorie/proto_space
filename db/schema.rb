@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151204075334) do
+ActiveRecord::Schema.define(version: 20151209031851) do
 
   create_table "protos", force: :cascade do |t|
     t.datetime "created_at"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20151204075334) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "proto_id",   limit: 4
+    t.integer  "status",     limit: 4
   end
 
   add_index "thumbnails", ["proto_id"], name: "index_thumbnails_on_proto_id", using: :btree
