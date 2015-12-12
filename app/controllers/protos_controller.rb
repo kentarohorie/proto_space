@@ -1,4 +1,9 @@
 class ProtosController < ApplicationController
+
+  def index
+    @protos = Proto.all
+  end
+
   def show
     @proto = Proto.find_by_id(params[:id])
   end

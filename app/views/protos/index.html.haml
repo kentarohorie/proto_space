@@ -6,9 +6,9 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{role: "presentation"}
+        %li.active{ role: "presentation" }
           = link_to 'Popular PROTO', '#'
-        %li{role: "presentation"}
+        %li{ role: "presentation" }
           = link_to 'Newest PROTO', '#'
       %button{ type: "button", class: "btn btn-default col-lg-1" } View TAGS
 
@@ -20,11 +20,11 @@
   %ul.pagination
     %li.disabled
       = link_to '#', aria: { label: :Previous } do
-        %span{aria: { hidden: :true } } «
+        %span{ aria: { hidden: :true } } «
     %li.active
       = link_to '#' do
         1
         %span.sr-only (current)
     %li
       = link_to '#', aria: { label: :Next } do
-        %span{aria: { hidden: :true } } »
+        %span{ aria: { hidden: :true } } »
