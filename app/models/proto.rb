@@ -8,4 +8,13 @@ class Proto < ActiveRecord::Base
     monthes = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     return "#{monthes[month_num - 1]} #{self.updated_at.day}"
   end
+
+  def is_one_num_thumbnails
+    counter = 0
+    self.thumbnails.each do |thumbnail|
+      counter += 1 if thumbnail.status == "sub" && thumbnail.image.file != nil
+    end
+    return counter
+  end
+
 end

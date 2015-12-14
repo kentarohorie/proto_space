@@ -6,6 +6,8 @@ class ProtosController < ApplicationController
 
   def show
     @proto = Proto.find_by_id(params[:id])
+    @user = @proto.user
+    @thumbnails = @proto.thumbnails
   end
 
   def new
