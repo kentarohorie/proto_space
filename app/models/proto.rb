@@ -9,12 +9,12 @@ class Proto < ActiveRecord::Base
     return "#{monthes[month_num - 1]} #{self.updated_at.day}"
   end
 
-  def is_one_num_thumbnails
-    counter = 0
+  def get_sub_thumbnails
+    sub_thumbnails = []
     self.thumbnails.each do |thumbnail|
-      counter += 1 if thumbnail.status == "sub" && thumbnail.image.file != nil
+      sub_thumbnails << thumbnail if thumbnail.status == "sub" && thumbnail.image.file != nil
     end
-    return counter
+    return sub_thumbnails
   end
 
 end
