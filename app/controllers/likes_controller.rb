@@ -1,12 +1,12 @@
 class LikesController < ApplicationController
   def create
-    binding.pry
-    Like.create(like_params)
+    Like.create(create_params)
+    @proto = Proto.find(params[:proto_id])
   end
 
   def update
-    binding.pry
-    like
+    Like.find(params[:id]).destroy
+    @proto = Proto.find(params[:proto_id])
   end
 
   private

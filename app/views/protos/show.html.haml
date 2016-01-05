@@ -14,18 +14,7 @@
               = @user.works
 
     .col-md-6.text-right
-      - if Like.is_exist_like(current_user, @proto)
-        = link_to proto_like_path(@proto, Like.get_like(current_user, @proto)), method: :patch, remote: true do
-          %button.btn.btn-default{ style: 'width: 110px; height: 62px;'}
-            = image_tag("save_image.jpg") #likeのインスタンスいらなくね？
-            Like
-            %span.num 20
-      - else
-        = link_to proto_likes_path(@proto), method: :post, remote: true do
-          %button.btn.btn-default{ style: 'width: 110px; height: 62px;'}
-            = image_tag("icon_heart.svg")
-            Like
-            %span.num 19
+      = render partial: 'likes/like'
   .row
     .col-md-9
       = image_tag(@thumbnails[0].image, class: 'img-responsive')
@@ -58,13 +47,15 @@
         = @comments.count
         )
     .col-md-8
-      = render partial: 'comments/comment', collection: @comments
-      = form_for [@proto, @comment], remote: true do |f|
-        %h4
-          Write a comment
-        .row
-          .form-group.col-md-10
-            = f.text_area :comment, placeholder: 'Your comments', size: '30x3', class: 'form-control'
-          .form-group.col-md-2
-            = f.submit ['Comment'], class: 'btn btn-primary'
+      .media
+        = render partial: 'comments/comment', collection: @comments
+      - if user_signed_in?
+        = form_for [@proto, @comment], remote: true do |f|
+          %h4
+            Write a comment
+          .row
+            .form-group.col-md-10
+              = f.text_area :comment, placeholder: 'Your comments', size: '30x3', class: 'form-control'
+            .form-group.col-md-2
+              = f.submit ['Comment'], class: 'btn btn-primary'
 
