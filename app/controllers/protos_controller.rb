@@ -5,9 +5,12 @@ class ProtosController < ApplicationController
   end
 
   def show
-    @proto = Proto.find_by_id(params[:id])
+    @proto = Proto.find(params[:id])
     @user = @proto.user
     @thumbnails = @proto.thumbnails
+    @comments = Comment.where(proto_id: @proto.id)
+    @comment = Comment.new
+    @likes = @proto.likes
   end
 
   def new
