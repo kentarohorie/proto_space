@@ -15,8 +15,8 @@
           = @proto.likes.count
 - else
   = link_to new_user_session_path, method: :post, remote: true do
-      %button.btn.btn-default{ style: 'width: 110px; height: 62px;'}
-        = image_tag("icon_heart.svg")
-        Like
-        %span.num
-          = @proto.likes.count
+    %button.btn.btn-default{ style: 'width: 110px; height: 62px;'}
+      = image_tag("icon_heart.svg")
+      Like
+      %span.num
+        = @proto.likes.count
