@@ -11,7 +11,6 @@
             .proto-posted
               = proto.get_month_english(proto.updated_at.month)
           %ul.proto-tag-list.list-inline
-            %li
-              = link_to 'iPad', '#', class: 'btn btn-default'
-            %li
-              = link_to 'wireframe', '#', class: 'btn btn-default'
+            - proto.tags.each do |tag|
+              %li
+                = link_to "#{tag.name}", '#', class: 'btn btn-default'

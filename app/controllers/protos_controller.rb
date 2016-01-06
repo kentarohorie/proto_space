@@ -22,6 +22,6 @@ class ProtosController < ApplicationController
 
   private
   def create_params
-    params.require(:proto).permit(:title, :catchcopy, :concept, thumbnails_attributes: [:image, :status]).merge(user_id: current_user.id)
+    params.require(:proto).permit(:title, :catchcopy, :concept, thumbnails_attributes: [:image, :status]).merge(user_id: current_user.id, tag_list: params[:proto][:tag])
   end
 end
