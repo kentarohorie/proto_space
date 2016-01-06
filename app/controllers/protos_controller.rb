@@ -16,13 +16,12 @@ class ProtosController < ApplicationController
   end
 
   def create
-    binding.pry
     Proto.create(create_params)
     redirect_to root_path and return
   end
 
   def destroy
-    Thumbnail.where(proto_id: params[:id]).destroy_all
+    # Thumbnail.where(proto_id: params[:id]).destroy_all
     Proto.find_by_id(params[:id]).destroy
     redirect_to root_path and return
   end

@@ -1,5 +1,5 @@
 class Proto < ActiveRecord::Base
-  has_many :thumbnails
+  has_many :thumbnails, dependent: :destroy
   belongs_to :user
   accepts_nested_attributes_for :thumbnails
   validates :title, :concept, :catchcopy, presence: :true

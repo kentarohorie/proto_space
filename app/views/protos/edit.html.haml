@@ -13,10 +13,10 @@
               = thumbnail.hidden_field :status, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
-            - for i in 0..1
+            - @proto.get_sub_thumbnails.each do |thumbnail|
               %li.list-group-item.col-md-4
                 .image-upload
-                  = f.fields_for :thumbnails, @proto.thumbnails[i] do |thumbnail|
+                  = f.fields_for :thumbnails, thumbnail do |thumbnail|
                     = thumbnail.file_field :image
                     = thumbnail.hidden_field :status, value: :sub
             %li.list-group-item.col-md-4
