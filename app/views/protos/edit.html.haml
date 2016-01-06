@@ -8,7 +8,7 @@
       .row
         .col-md-12
           .cover-image-upload
-            = f.fields_for :thumbnails, @proto.thumbnails[0] do |thumbnail|
+            = f.fields_for :thumbnails, @proto.get_main_thumbnail do |thumbnail|
               = thumbnail.file_field :image
               = thumbnail.hidden_field :status, value: :main
         .col-md-12
