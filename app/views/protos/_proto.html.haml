@@ -16,7 +16,7 @@
             .proto-user
               = link_to 'by ' + proto.user.username, user_path(proto.user)
             .proto-posted
-              = proto.get_month_english(proto.updated_at.month)
+              = proto.get_month_english(proto.created_at.month)
           %ul.proto-tag-list.list-inline
             %li
               = link_to 'iPad', '#', class: 'btn btn-default'
