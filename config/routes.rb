@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root 'protos#index'
   resources :users, only: [:show, :edit, :update]
   resources :protos, only: [:new, :create, :show]
+  resources :tags, only: [:index, :show]
 end

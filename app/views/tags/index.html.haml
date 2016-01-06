@@ -1,0 +1,8 @@
+.container
+  .row
+    .tags_list
+      %h2{ style: 'font-family: inherit; font-weight: 100; margin-bottom: 20px;' } Tags list
+      %ul{ style: 'list-style: none; margin: 30px 0; padding: 0; overflow: hidden;' }
+        - @tags.each do |tag|
+          %li.col-md-4{ style: 'margin-bottom: 10px;' }
+            = link_to tag.name, tag_path(tag.name), class: 'btn btn-default', style: 'text-align: left; padding: 20px; border-radius: 3px; width: 100%;'
