@@ -1,4 +1,11 @@
 .col-sm-4.col-md-3.proto-content
+  %div.dropdown.drop_menu_location{ style: 'position: relative; top: 35px; left: 5px;' }
+    %button.btn.btn-default.dropdown-toggle{ data: { toggle: :dropdown }, id: :dropdownMenu, type: :button } Action
+    %ul.dropdown-menu{ aria: { labelledby: :dropdownMenu1 } }
+      %li
+        = link_to 'Delete', proto_path(proto), rel: :nofollow, data: { method: :delete }
+      %li
+        = link_to 'Edit', edit_proto_path(proto)
   .thumbnail
     = link_to proto_path(proto) do
       = image_tag proto.thumbnails[0].image
@@ -9,7 +16,7 @@
             .proto-user
               = link_to 'by ' + proto.user.username, user_path(proto.user)
             .proto-posted
-              = proto.get_month_english(proto.updated_at.month)
+              = proto.get_month_english(proto.created_at.month)
           %ul.proto-tag-list.list-inline
             %li
               = link_to 'iPad', '#', class: 'btn btn-default'
