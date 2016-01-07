@@ -14,7 +14,7 @@ class Proto < ActiveRecord::Base
     self.thumbnails.each do |thumbnail|
       sub_thumbnails << thumbnail if thumbnail.status == "sub" && thumbnail.image.file != nil
     end
-    return sub_thumbnails
+    sub_thumbnails
   end
 
   def get_main_thumbnail
