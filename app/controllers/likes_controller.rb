@@ -1,12 +1,12 @@
 class LikesController < ApplicationController
   def create
     Like.create(create_params)
-    @proto = Proto.find(params[:proto_id])
+    @proto = Proto.find_by_id(params[:proto_id])
   end
 
   def update
-    Like.find(params[:id]).destroy
-    @proto = Proto.find(params[:proto_id])
+    Like.find_by_id(params[:id]).destroy
+    @proto = Proto.find_by_id(params[:proto_id])
   end
 
   private
