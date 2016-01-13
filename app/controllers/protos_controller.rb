@@ -15,7 +15,7 @@ class ProtosController < ApplicationController
   end
 
   def create
-    Proto.create(create_params)
+    Proto.create(proto_params)
     redirect_to root_path and return
   end
 
