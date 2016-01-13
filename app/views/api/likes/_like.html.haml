@@ -1,13 +1,13 @@
 - if user_signed_in?
   - if Like.is_exist_like(current_user, @proto)
-    = link_to proto_like_path(@proto, Like.get_like(current_user, @proto)), method: :patch, remote: true do
+    = link_to proto_api_like_path(@proto, Like.get_like(current_user, @proto)), method: :patch, remote: true do
       %button.btn.btn-default{ style: 'width: 110px; height: 62px;'}
         = image_tag("icon_heart_red.svg")
         Like
         %span.num
           = @proto.likes.count
   - else
-    = link_to proto_likes_path(@proto), method: :post, remote: true do
+    = link_to proto_api_likes_path(@proto), method: :post, remote: true do
       %button.btn.btn-default{ style: 'width: 110px; height: 62px;'}
         = image_tag("icon_heart.svg")
         Like

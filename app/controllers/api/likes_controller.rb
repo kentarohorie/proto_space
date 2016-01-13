@@ -1,4 +1,4 @@
-class LikesController < ApplicationController
+class Api::LikesController < ApplicationController
   def create
     Like.create(create_params)
     @proto = Proto.find_by_id(params[:proto_id])

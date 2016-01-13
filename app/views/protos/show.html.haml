@@ -14,7 +14,7 @@
               = @user.works
 
     .col-md-6.text-right
-      = render partial: 'likes/like'
+      = render partial: 'api/likes/like'
   .row
     .col-md-9
       = image_tag(@proto.get_main_thumbnail.image, class: 'img-responsive')
@@ -48,9 +48,9 @@
         )
     .col-md-8
       .media
-        = render partial: 'comments/comment', collection: @comments
+        = render partial: 'prototypes/comments/comment', collection: @comments
       - if user_signed_in?
-        = form_for [@proto, @comment], remote: true do |f|
+        = form_for [@proto, :prototypes, @comment], remote: true do |f|
           %h4
             Write a comment
           .row

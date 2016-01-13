@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   root 'protos#index'
   resources :users, only: [:show, :edit, :update]
   resources :protos do
-    resources :comments, only: [:create]
-    resources :likes, only: [:create, :update]
+    namespace :prototypes do
+      resources :comments, only: [:create]
+    end
+    namespace :api do
+      resources :likes, only: [:create, :update]
+    end
   end
 end
