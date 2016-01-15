@@ -50,7 +50,7 @@
       .media
         = render partial: 'prototypes/comments/comment', collection: @comments
       - if user_signed_in?
-        = form_for [@proto, :prototypes, @comment], remote: true do |f|
+        = form_for [@proto, @comment], remote: true do |f|
           %h4
             Write a comment
           .row
