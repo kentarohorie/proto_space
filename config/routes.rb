@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update]
   resources :protos do
     resources :comments, only: [:create], module: :prototypes
-    namespace :api do
-      resources :likes, only: [:create, :update]
-    end
+    resources :likes, only: [:create, :update]
   end
 end
 
