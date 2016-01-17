@@ -4,7 +4,6 @@ class Proto < ActiveRecord::Base
   has_many :likes, dependent: :delete_all
   belongs_to :user
   accepts_nested_attributes_for :thumbnails
-  validates :title, :concept, :catchcopy, :tag_list, presence: :true
   acts_as_taggable
 
   def get_month_english(month_num)
