@@ -7,7 +7,7 @@
             = f.text_field :title, placeholder: 'Title'
       .row
         .col-md-12
-          .cover-image-upload
+          .cover-image-upload#mainImagePreview
             = f.fields_for :thumbnails do |thumbnail|
               = thumbnail.file_field :image
               = thumbnail.hidden_field :status, value: :main
@@ -15,7 +15,7 @@
           %ul.proto-sub-list.list-group
             - for i in 1..2
               %li.list-group-item.col-md-4
-                .image-upload
+                .image-upload#subImagePreview
                   = f.fields_for :thumbnails do |thumbnail|
                     = thumbnail.file_field :image
                     = thumbnail.hidden_field :status, value: :sub
