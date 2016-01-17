@@ -1,10 +1,11 @@
 class Proto < ActiveRecord::Base
   has_many :thumbnails, dependent: :delete_all
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :delete_all
+  has_many :likes, dependent: :delete_all
   belongs_to :user
   accepts_nested_attributes_for :thumbnails
   validates :title, :concept, :catchcopy, presence: :true
+  acts_as_taggable
 
   def get_month_english(month_num)
     monthes = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
