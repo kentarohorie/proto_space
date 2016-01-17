@@ -4,7 +4,7 @@ $(function() {
   $('#subImagePreview input:file').uploadThumbs();
 
    $('#mainImagePreview input:file').change(function() {
-    $('#mainImagePreview #preImg').remove();
+    $('#preImg').remove();
   });
 
    $('#subImagePreview input:file').change(function() {
