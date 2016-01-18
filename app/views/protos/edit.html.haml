@@ -21,9 +21,14 @@
                     %img{ id: 'preSubImg', src: sub_thumbnail.image }
                     = thumbnail.file_field :image
                     = thumbnail.hidden_field :status, value: :sub
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
+            - @proto.get_nil_thumbnails.each_with_index do |nil_thumbnail, i|
+              %li.list-group-item.col-md-4{ id: "editViewList#{i}" }
+                .image-upload-plus{ class: "editViewPlus" }
+                  %span +
+                .image-upload#subImagePreview{ style: 'display: none;', class: :invisibleBlock}
+                  = f.fields_for :thumbnails, nil_thumbnail do |thumbnail|
+                    = thumbnail.file_field :image
+                    = thumbnail.hidden_field :status, value: :sub
       .row.proto-description
         .col-md-12
           = f.text_field :catchcopy, placeholder: 'Catch Copy'

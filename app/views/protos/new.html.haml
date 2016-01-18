@@ -20,8 +20,12 @@
                     = thumbnail.file_field :image
                     = thumbnail.hidden_field :status, value: :sub
             %li.list-group-item.col-md-4
-              .image-upload-plus
+              .image-upload-plus#newViewPlus
                 %span +
+              .image-upload#subImagePreview#invisibleBlock{ style: 'display: none;' }
+                = f.fields_for :thumbnails do |thumbnail|
+                  = thumbnail.file_field :image
+                  = thumbnail.hidden_field :status, value: :sub
       .row.proto-description
         .col-md-12
           = f.text_field :catchcopy, placeholder: 'Catch Copy'
