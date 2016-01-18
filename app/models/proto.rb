@@ -1,7 +1,7 @@
 class Proto < ActiveRecord::Base
   has_many :thumbnails, dependent: :delete_all
-  has_many :comments
-  has_many :likes
+  has_many :comments, dependent: :delete_all
+  has_many :likes, dependent: :delete_all
   belongs_to :user
   accepts_nested_attributes_for :thumbnails
   validates :title, :concept, :catchcopy, presence: :true
@@ -23,6 +23,14 @@ class Proto < ActiveRecord::Base
     self.thumbnails.each do |thumbnail|
       return thumbnail if thumbnail.status == "main"
     end
+  end
+
+  def get_nil_thumbnails
+    nil_thumbnails = []
+    self.thumbnails.each do |thumbnail|
+      nil_thumbnails << thumbnail if thumbnail.image.file == nil
+    end
+    return nil_thumbnails
   end
 
 end
