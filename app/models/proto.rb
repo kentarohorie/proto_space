@@ -5,6 +5,7 @@ class Proto < ActiveRecord::Base
   belongs_to :user
   accepts_nested_attributes_for :thumbnails
   validates :title, :concept, :catchcopy, presence: :true
+  acts_as_taggable
 
   def get_month_english(month_num)
     monthes = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']

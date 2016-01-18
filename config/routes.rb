@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resources :comments, only: [:create], module: :prototypes
     resources :likes, only: [:create, :update], module: :prototypes
   end
+  resources :tags, only: [:index, :show]
 end
 
