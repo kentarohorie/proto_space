@@ -10,11 +10,12 @@ $(function() {
    $('#subImagePreview input:file').change(function() {
     $('#preSubImg').remove();
    });
+ });
 
     $(function() {
       $('#newViewPlus').click(function() {
         $(this).remove();
-        $('#invisibleBlock').css('display', 'block')
+        $('#invisibleBlock').css('display', 'block');
         $('#invisibleBlock input:file').uploadThumbs();
       });
     });
@@ -46,6 +47,5 @@ $(function() {
       });
     });
 
-});
 
 
