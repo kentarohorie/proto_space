@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def show
+    @protos = current_user.protos.page(params[:page]).per(1)
   end
 
   def edit
