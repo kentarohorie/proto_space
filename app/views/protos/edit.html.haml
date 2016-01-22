@@ -7,21 +7,28 @@
             = f.text_field :title, placeholder: 'Title'
       .row
         .col-md-12
-          .cover-image-upload
+          .cover-image-upload#mainImagePreview
             = f.fields_for :thumbnails, @proto.get_main_thumbnail do |thumbnail|
+              %img{ id: 'preImg', src: @proto.get_main_thumbnail.image }
               = thumbnail.file_field :image
               = thumbnail.hidden_field :status, value: :main
         .col-md-12
           %ul.proto-sub-list.list-group
-            - @proto.get_sub_thumbnails.each do |thumbnail|
+            - @proto.get_sub_thumbnails.each do |sub_thumbnail|
               %li.list-group-item.col-md-4
-                .image-upload
-                  = f.fields_for :thumbnails, thumbnail do |thumbnail|
+                .image-upload#subImagePreview
+                  = f.fields_for :thumbnails, sub_thumbnail do |thumbnail|
+                    %img{ id: 'preSubImg', src: sub_thumbnail.image }
                     = thumbnail.file_field :image
                     = thumbnail.hidden_field :status, value: :sub
-            %li.list-group-item.col-md-4
-              .image-upload-plus
-                %span +
+            - @proto.get_nil_thumbnails.each_with_index do |nil_thumbnail, i|
+              %li.list-group-item.col-md-4{ id: "editViewList#{i}" }
+                .image-upload-plus{ class: "editViewPlus" }
+                  %span +
+                .image-upload#subImagePreview{ style: 'display: none;', class: :invisibleBlock}
+                  = f.fields_for :thumbnails, nil_thumbnail do |thumbnail|
+                    = thumbnail.file_field :image
+                    = thumbnail.hidden_field :status, value: :sub
       .row.proto-description
         .col-md-12
           = f.text_field :catchcopy, placeholder: 'Catch Copy'
@@ -38,3 +45,4 @@
               / %input{:type => "text", :placeholder => "Application"}/
       .row.text-center.proto-btn
         = f.submit 'Publish', class: 'btn btn-lg btn-primary btn-block'
+
