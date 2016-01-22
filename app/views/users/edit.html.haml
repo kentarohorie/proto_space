@@ -14,7 +14,7 @@
           .user-name_image.row
             .user-name.col-md-10
               = f.text_field :username, placeholder: 'Username'
-            .user-image.col-md-2{ style: "background-image: url(#{current_user.avatar}) ;" }
+            .user-image.col-md-2{ id: 'mainImagePreview', style: "background-image: url(#{current_user.avatar}) ;" }
               = f.button 'Change image', class: 'btn btn-primary'
               = f.file_field :avatar
           = f.email_field :email, autofocus: true, class: 'user-email'

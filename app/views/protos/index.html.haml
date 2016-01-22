@@ -6,9 +6,9 @@
   .container
     .row
       %ul.nav.nav-pills.col-lg-11
-        %li.active{ role: "presentation" }
+        %li{ class: "#{@select_popular}", role: "presentation" }
           = link_to 'Popular PROTO', root_path
-        %li{ role: "presentation" }
+        %li{ class: "#{@select_newest}", role: "presentation" }
           = link_to 'Newest PROTO', controller: 'protos', action: 'index', id: 'newest'
       = link_to tags_path do
         %button{ type: "button", class: "btn btn-default col-lg-1" } View TAGS

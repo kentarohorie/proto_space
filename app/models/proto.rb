@@ -26,4 +26,12 @@ class Proto < ActiveRecord::Base
     end
   end
 
+  def get_nil_thumbnails
+    nil_thumbnails = []
+    self.thumbnails.each do |thumbnail|
+      nil_thumbnails << thumbnail if thumbnail.image.file == nil
+    end
+    return nil_thumbnails
+  end
+
 end
