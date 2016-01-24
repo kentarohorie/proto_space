@@ -6,6 +6,7 @@ class Proto < ActiveRecord::Base
   accepts_nested_attributes_for :thumbnails
   validates :title, :concept, :catchcopy, presence: :true
   acts_as_taggable
+  paginates_per 3
 
   def get_month_english(month_num)
     monthes = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -29,7 +30,7 @@ class Proto < ActiveRecord::Base
   def get_nil_thumbnails
     nil_thumbnails = []
     self.thumbnails.each do |thumbnail|
-      nil_thumbnails << thumbnail if thumbnail.image.file == nil
+      nil_thumbnails << thumbnail unless thumbnail.image.file
     end
     return nil_thumbnails
   end
