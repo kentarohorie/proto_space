@@ -2,10 +2,10 @@ class ProtosController < ApplicationController
 
   def index
     if params[:id] == 'newest'
-      @protos = Proto.all.order('updated_at DESC').page(params[:page]).per(2)
+      @protos = Proto.all.order('updated_at DESC').page(params[:page])
       @select_newest = "active"
     else
-      @protos = Proto.all.order('likes_count DESC').page(params[:page]).per(2)
+      @protos = Proto.all.order('likes_count DESC').page(params[:page])
       @select_popular = "active"
     end
   end
